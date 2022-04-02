@@ -70,7 +70,7 @@ if [ ! -d "$DEPS/smt-switch" ]; then
         ./contrib/setup-skbuild.sh
     fi
     # pass bison/flex directories from smt-switch perspective
-    ./configure.sh --btor --cvc4 $CONF_OPTS --prefix=local --static --smtlib-reader --bison-dir=../bison/bison-install --flex-dir=../flex/flex-install
+    ./configure.sh --btor $CONF_OPTS --prefix=local --static --smtlib-reader --bison-dir=../bison/bison-install --flex-dir=../flex/flex-install
     cd build
     make -j$(nproc)
     # TODO put this back

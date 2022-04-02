@@ -81,10 +81,6 @@ if (NOT EXISTS "${SMT_SWITCH_DIR}/local/lib/libsmt-switch-btor.a")
   message(FATAL_ERROR "Missing smt-switch boolector library -- try running ./contrib/setup-smt-switch.sh")
 endif()
 
-if (NOT EXISTS "${SMT_SWITCH_DIR}/local/lib/libsmt-switch-cvc4.a")
-  message(FATAL_ERROR "Missing smt-switch cvc4 library -- try running ./contrib/setup-smt-switch.sh --with-cvc4")
-endif()
-
 if (WITH_MSAT)
   if (NOT EXISTS "${SMT_SWITCH_DIR}/local/lib/libsmt-switch-msat.a")
     message(FATAL_ERROR "Missing smt-switch mathsat library -- try running ./contrib/setup-smt-switch.sh --with-msat")
@@ -223,7 +219,6 @@ if (BUILD_PYTHON_BINDINGS)
 endif()
 
 target_link_libraries(pono-lib PUBLIC "${SMT_SWITCH_DIR}/local/lib/libsmt-switch-btor.a")
-target_link_libraries(pono-lib PUBLIC "${SMT_SWITCH_DIR}/local/lib/libsmt-switch-cvc4.a")
 
 if (WITH_MSAT)
   target_link_libraries(pono-lib PUBLIC "${SMT_SWITCH_DIR}/local/lib/libsmt-switch-msat.a")

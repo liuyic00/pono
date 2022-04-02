@@ -34,12 +34,13 @@ class TransitionSystem
    * sorts
    *  this makes it a great candidate for representing the TransitionSystem */
   TransitionSystem()
-      : solver_(smt::CVC4SolverFactory::create(false)),
-        init_(solver_->make_term(true)),
+      : init_(solver_->make_term(true)),
         trans_(solver_->make_term(true)),
         functional_(false),
         deterministic_(false)
   {
+    printf("This sould not work because removed CVC4\n");
+    exit(-1);
   }
 
   TransitionSystem(const smt::SmtSolver & s)

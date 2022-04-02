@@ -47,7 +47,7 @@ namespace pono {
 
 // list of regular (non-interpolator) solver enums
 const std::vector<SolverEnum> solver_enums({
-  BTOR, CVC4,
+  BTOR,
 
 #if WITH_MSAT
       MSAT,
@@ -66,10 +66,6 @@ SmtSolver create_solver_base(SolverEnum se, bool logging)
   switch (se) {
     case BTOR: {
       s = BoolectorSolverFactory::create(logging);
-      break;
-    }
-    case CVC4: {
-      s = CVC4SolverFactory::create(logging);
       break;
     }
 #if WITH_MSAT
